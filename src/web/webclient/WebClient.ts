@@ -5,13 +5,13 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 export default class WebClient{
 
     // Get requests
-    async getExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
+    static async getExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
         const response: AxiosResponse<any, any> = await axios.get(webRequest.url, axiosRequest);
         return response;
     }
 
-    async getDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
+    static async getDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -21,7 +21,7 @@ export default class WebClient{
         return await this.getExchange(webRequest);
     }
 
-    async getSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
+    static async getSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -31,7 +31,7 @@ export default class WebClient{
         return await this.getExchange(webRequest);
     }
 
-    async getBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
+    static async getBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
@@ -43,13 +43,13 @@ export default class WebClient{
 
 
     // Post requests
-    async postExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
+    static async postExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
         const response: AxiosResponse<any, any> = await axios.post(webRequest.url, axiosRequest);
         return response;
     }
 
-    async postDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
+    static async postDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -59,7 +59,7 @@ export default class WebClient{
         return await this.postExchange(webRequest);
     }
 
-    async postSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
+    static async postSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -69,7 +69,7 @@ export default class WebClient{
         return await this.postExchange(webRequest);
     }
 
-    async postBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
+    static async postBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
@@ -80,13 +80,13 @@ export default class WebClient{
     }
 
     // Put requests
-    async putExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
+    static async putExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
         const response: AxiosResponse<any, any> = await axios.put(webRequest.url, axiosRequest);
         return response;
     }
 
-    async putDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
+    static async putDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -96,7 +96,7 @@ export default class WebClient{
         return await this.putExchange(webRequest);
     }
 
-    async putSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
+    static async putSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -106,7 +106,7 @@ export default class WebClient{
         return await this.putExchange(webRequest);
     }
 
-    async putBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
+    static async putBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
@@ -117,13 +117,13 @@ export default class WebClient{
     }
 
     // Patch request
-    async patchExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
+    static async patchExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
         const response: AxiosResponse<any, any> = await axios.put(webRequest.url, axiosRequest);
         return response;
     }
 
-    async patchDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
+    static async patchDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -133,7 +133,7 @@ export default class WebClient{
         return await this.patchExchange(webRequest);
     }
 
-    async patchSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
+    static async patchSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -143,7 +143,7 @@ export default class WebClient{
         return await this.patchExchange(webRequest);
     }
 
-    async patchBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
+    static async patchBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
@@ -154,13 +154,13 @@ export default class WebClient{
     }
 
     // delete request
-    async deleteExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
+    static async deleteExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
         const response: AxiosResponse<any, any> = await axios.delete(webRequest.url, axiosRequest);
         return response;
     }
 
-    async deleteDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
+    static async deleteDirectExchange(url: string, headers: object, queries: object): Promise<AxiosResponse<any, any>>{
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -170,7 +170,7 @@ export default class WebClient{
         return await this.deleteExchange(webRequest);
     }
 
-    async deleteSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
+    static async deleteSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: headers,
@@ -180,7 +180,7 @@ export default class WebClient{
         return await this.deleteExchange(webRequest);
     }
 
-    async deleteBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
+    static async deleteBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
