@@ -59,6 +59,16 @@ export default class WebClient{
         return await this.postExchange(webRequest);
     }
 
+    static async postDirectBodyExchange(url: string, headers: object, queries: object, body: object): Promise<AxiosResponse<any, any>>{
+        const webRequest: WebRequest<any> = {
+            url: url,
+            headers: headers,
+            queries: queries,
+            body: body
+        }
+        return await this.postExchange(webRequest);
+    }
+
     static async postSimpleExchange(url: string, headers: object): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
@@ -69,12 +79,32 @@ export default class WebClient{
         return await this.postExchange(webRequest);
     }
 
+    static async postSimpleBodyExchange(url: string, headers: object, body: object): Promise<AxiosResponse<any, any>> {
+        const webRequest: WebRequest<any> = {
+            url: url,
+            headers: headers,
+            queries: {},
+            body: body
+        }
+        return await this.postExchange(webRequest);
+    }
+
     static async postBasicExchange(url: string): Promise<AxiosResponse<any, any>> {
         const webRequest: WebRequest<any> = {
             url: url,
             headers: {},
             queries: {},
             body: undefined
+        }
+        return await this.postExchange(webRequest);
+    }
+
+    static async postBasicBodyExchange(url: string, body: object): Promise<AxiosResponse<any, any>> {
+        const webRequest: WebRequest<any> = {
+            url: url,
+            headers: {},
+            queries: {},
+            body: body
         }
         return await this.postExchange(webRequest);
     }
@@ -92,6 +122,16 @@ export default class WebClient{
             headers: headers,
             queries: queries,
             body: undefined
+        }
+        return await this.putExchange(webRequest);
+    }
+
+    static async putDirectBodyExchange(url: string, headers: object, queries: object, body: object): Promise<AxiosResponse<any, any>>{
+        const webRequest: WebRequest<any> = {
+            url: url,
+            headers: headers,
+            queries: queries,
+            body: body
         }
         return await this.putExchange(webRequest);
     }
@@ -129,6 +169,16 @@ export default class WebClient{
             headers: headers,
             queries: queries,
             body: undefined
+        }
+        return await this.patchExchange(webRequest);
+    }
+
+    static async patchDirectBodyExchange(url: string, headers: object, queries: object, body: object): Promise<AxiosResponse<any, any>>{
+        const webRequest: WebRequest<any> = {
+            url: url,
+            headers: headers,
+            queries: queries,
+            body: body
         }
         return await this.patchExchange(webRequest);
     }
@@ -196,7 +246,7 @@ export default class WebClient{
         const axiosConfig: AxiosRequestConfig<any> = {
             url: webRequest.url,
             headers: webRequest.headers,
-            data: webRequest.body,
+            data: JSON.stringify(webRequest.body),
             params: webRequest.queries
         }
         return axiosConfig;

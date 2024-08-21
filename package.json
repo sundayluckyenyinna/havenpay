@@ -48,6 +48,7 @@
     "prisma": "5.16.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
+    "spacetime": "^7.6.1",
     "stripe": "^12.3.0",
     "uuid": "^9.0.0"
   },

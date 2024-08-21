@@ -9,3 +9,7 @@ export class UserAlreadyExistsException extends HttpException {
 export class UserNotFoundException extends HttpException {
     name: "UserNotFoundException";
 }
+
+export class OmnixConnectionException extends HttpException {
+    name: "OmnixConnectionException";
+}

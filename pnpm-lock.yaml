@@ -89,6 +89,9 @@ dependencies:
   rxjs:
     specifier: ^7.8.1
     version: 7.8.1
+  spacetime:
+    specifier: ^7.6.1
+    version: 7.6.1
   stripe:
     specifier: ^12.3.0
     version: 12.18.0
@@ -5079,6 +5082,10 @@ packages:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
     dev: true
+
+  /spacetime@7.6.1:
+    resolution: {integrity: sha512-LeqAU4HKi0DyJzhp6qHAGklipM81WvGDXVGlwXEZ1hHJCZUT4JhduBwovdnRvtqUPjDaI4DT2C/ZlsIXodSF8w==}
+    dev: false
 
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}

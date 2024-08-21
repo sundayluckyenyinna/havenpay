@@ -9,4 +9,6 @@ export type OmnixCredentialsData = {
     accessToken: string;
     encryptionKey: string;
     endPoint: string;
+    createdAt: Date;
+    expiredAt: Date;
 }
