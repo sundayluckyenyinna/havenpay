@@ -1,0 +1,12 @@
+swagger:
+  title: HavenPay API documentation
+  desc: HavenPay API documentation
+  version: 1.0.0
+  tag: ""
+  apiPath: /api/docs
+
+omnix:
+  connection:
+    channel: havenpay
+  api:
+    baseurl: http://apiv2.accionmfb.com:2002/omnix/api
