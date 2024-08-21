@@ -4,7 +4,6 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 export default class WebClient{
 
-
     // Get requests
     async getExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
