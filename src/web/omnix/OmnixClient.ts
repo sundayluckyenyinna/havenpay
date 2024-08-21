@@ -77,12 +77,12 @@ export default class OmnixClient {
     }
 
     static resolveOmnixUrl(path: string): string{
-        return Environment.getProperty("omnix.api.baseUrl").concat(path);
+        return Environment.getProperty("omnix.api.baseurl").concat(path);
     }
 
     static getOmnixConnectionHeaders(idToken: string): object{
         return {
-            'Authorization': OmnixUtils.getApplicationCredentials,
+            'Authorization': OmnixUtils.getApplicationCredentials(),
             'idToken': idToken,
             'Content-Type': 'application/json'
         }

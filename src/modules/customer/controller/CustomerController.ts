@@ -22,7 +22,7 @@ export default class CustomerController{
 
    @Post("register")
    @ApiCreatedResponse({ status: 200, type: ServerApiResponse<RegisterCustomerResponse> })
-   async processCustomerSignup(@Body() requestDto: RegisterCustomerRequestDto): Promise<ServerApiResponse<RegisterCustomerResponse>> {
-      return await this.customerService.processCustomerSignup(requestDto);
+   async processCustomerSignup(): Promise<ServerApiResponse<RegisterCustomerResponse>> {
+      return await this.customerService.processCustomerSignup(undefined);
    }
 }
