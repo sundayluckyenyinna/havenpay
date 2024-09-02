@@ -1,17 +1,24 @@
 /*eslint-disable */
 
 import { ApiProperty } from '@nestjs/swagger';
-import { plainToClass } from "class-transformer";
 
-export class RegisterCustomerResponse extends Object{
+export class RegisterCustomerResponseDto {
 
     @ApiProperty()
     firstName: string;
 
     @ApiProperty()
     middleName: string;
+}
 
-    static fromJson(json: object){
-        return plainToClass(RegisterCustomerResponse, json);
-    }
+
+export class CustomerDetailDto{
+    @ApiProperty()
+    primaryAccountNumber: string;
+
+    @ApiProperty()
+    dateOfBirth: string;
+
+    @ApiProperty()
+    emailAddress: string;
 }

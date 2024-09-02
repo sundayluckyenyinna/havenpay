@@ -21,7 +21,18 @@ export default class UserValidationService {
        }
    }
 
-   async validateUserExistencebyMobileNumber(mobileNumber: string){
+   async validateUserUniquenessByEmailAddress(email: string){
+      const customer: Customer = await this.prismaRepository.customer.findUnique({
+         where: {
+          emailAddress: email
+         }
+      });
+      if(customer){
+        throw new UserAlreadyExistsException(`User with email address ${email} already exists`, HttpStatus.BAD_REQUEST);
+     }
+   }
+
+   async validateUserExistenceByMobileNumber(mobileNumber: string){
      const customer: Customer = await this.prismaRepository.customer.findUnique({
        where: {
           phoneNumber: mobileNumber

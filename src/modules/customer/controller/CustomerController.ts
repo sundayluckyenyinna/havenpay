@@ -1,11 +1,12 @@
 /* eslint-disable */
 
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import CustomerService from "../service/CustomerService";
 import { ApiBadRequestResponse, ApiBearerAuth, ApiCreatedResponse, ApiInternalServerErrorResponse, ApiTags } from "@nestjs/swagger";
-import { RegisterCustomerRequestDto } from "../dtos/CustomerDto";
-import { RegisterCustomerResponse } from "../types/CustomerResponse";
+import { RegisterCustomerRequestDto, SendOtpRequestDto } from "../dtos/CustomerDto";
+import { RegisterCustomerResponseDto } from "../types/CustomerResponse";
 import ServerApiResponse from "src/common/ServerApiResponse";
+import { ApiOkResponseSchema } from "src/decorators/SwaggerDecorators";
 
 
 @Controller({
@@ -20,9 +21,15 @@ export default class CustomerController{
 
    constructor(private readonly customerService: CustomerService){}
 
-   @Post("register")
-   @ApiCreatedResponse({ status: 200, type: ServerApiResponse<RegisterCustomerResponse> })
-   async processCustomerSignup(): Promise<ServerApiResponse<RegisterCustomerResponse>> {
-      return await this.customerService.processCustomerSignup(undefined);
+   @Post("/send-otp")
+   @ApiOkResponseSchema(String)
+   async processCustomerSignup(@Body() requestDto: SendOtpRequestDto): Promise<ServerApiResponse<string>> {
+      return await this.customerService.processSendCustomerOtp(requestDto);
+   }
+
+   @Post("/register")
+   @ApiOkResponseSchema(RegisterCustomerResponseDto)
+   async processCustomerRegistration(@Body() requestDto: RegisterCustomerRequestDto): Promise<ServerApiResponse<RegisterCustomerResponseDto>> {
+      return null;
    }
 }

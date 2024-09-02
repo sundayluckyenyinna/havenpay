@@ -7,3 +7,14 @@ swagger:
   apiPath: /api/docs
 
 
+#========================================= Omnix configuration =======================================#
+omnix:
+  connection:
+    channel: test
+    access-token-expiration-in-min: 30
+  api:
+    baseurl: http://apiv2.accionmfb.com:2002/omnix/api
+    parameters: /generate/{channel}/parameters
+    credentials: /generate/{channel}/credentials
+    otp: /profileService/customer/otp/push
+    create-customer: /profileService/customer/individual

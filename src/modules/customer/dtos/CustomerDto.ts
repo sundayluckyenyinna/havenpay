@@ -1,9 +1,25 @@
 /* eslint-disable */
 
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsNumberString, IsString, Length } from "class-validator";
+import { MaritalStatus } from "@prisma/client";
+import { IsBase64, IsEmail, IsNumberString, IsString, Length, isMobilePhone } from "class-validator";
 
+
+// Request payload for sending otp
+export class SendOtpRequestDto{
+   
+  @IsNumberString()
+  @ApiProperty({ type: String })
+  mobileNumber: string;
+
+}
+
+// Request payload to register customer
 export class RegisterCustomerRequestDto{
+
+  @IsString()
+  @ApiProperty()
+  biometric: string;
 
   @IsNumberString()
   @Length(11, 11)
@@ -20,7 +36,7 @@ export class RegisterCustomerRequestDto{
 
   @IsString()
   @ApiProperty()
-  phoneNumber: string;
+  mobileNumber: string;
 
   @IsEmail()
   @ApiProperty()
@@ -42,8 +58,42 @@ export class RegisterCustomerRequestDto{
   @Length(4, 4)
   @ApiProperty()
   transactionPin: string;
+
+  @IsString()
+  @ApiProperty()
+  imei: string;
+
+  @IsString()
+  @ApiProperty()
+  localGovernment: string;
+
+  @IsString()
+  @ApiProperty({ type: MaritalStatus })
+  maritalStatus: MaritalStatus;
+
+  @IsString()
+  @ApiProperty()
+  residentialAddress: string;
+
+  @IsString()
+  @ApiProperty()
+  securityAnswer: string;
+
+  @IsString()
+  @ApiProperty()
+  securityQuestion: string;
+
+  @IsString()
+  @ApiProperty()
+  state: string;
+
+  @IsString()
+  @IsBase64()
+  @ApiProperty()
+  utilityBillBase64: string;
 }
 
+// Request payload to process customer login request
 export class CustomerLoginRequestDto{
 
   @IsString()
@@ -55,6 +105,7 @@ export class CustomerLoginRequestDto{
   password: string;
 }
 
+// Request payload for customer forgot password
 export class ForgotPasswordRequestDto{
   @IsString()
   @ApiProperty()

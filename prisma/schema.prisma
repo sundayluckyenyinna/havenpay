@@ -24,15 +24,21 @@ model Bvn {
   updatedAt   DateTime @updatedAt
 }
 
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+}
+
 model Customer {
-  id             Int      @id @default(autoincrement())
+  id             Int           @id @default(autoincrement())
   otp            String
   fullName       String
-  phoneNumber    String   @unique
-  emailAddress   String
+  phoneNumber    String        @unique
+  emailAddress   String        @unique
   nin            String
   referralCode   String
   password       String
   transactionPin String
   createdAt      DateTime
+  maritalStatus  MaritalStatus
 }

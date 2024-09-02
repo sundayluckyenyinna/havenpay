@@ -7,7 +7,7 @@ import { ValidationPipe } from "@nestjs/common";
 import { json } from "express";
 import Environment from "./utils/Environment";
 import * as cookieParser from "cookie-parser";
-import { RegisterCustomerResponse } from "./modules/customer/types/CustomerResponse";
+import { RegisterCustomerResponseDto } from "./modules/customer/types/CustomerResponse";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -35,7 +35,6 @@ async function bootstrap() {
   // Server static files in public folder of root project directory.
   // app.use(express.static(path.join(__dirname, './public')));
   app.use(json({ limit: "50mb" }));
-  console.log(RegisterCustomerResponse.fromJson({ firstNames: 'Sunday', middleNameh: 'Lucky'}));
   await app.listen(3000);
 }
 bootstrap();

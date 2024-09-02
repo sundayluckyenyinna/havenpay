@@ -45,7 +45,7 @@ export default class WebClient{
     // Post requests
     static async postExchange(webRequest: WebRequest<any>): Promise<AxiosResponse<any, any>>{
         const axiosRequest: AxiosRequestConfig<any> = WebClient.getAxiosRequestConfigurations(webRequest);
-        const response: AxiosResponse<any, any> = await axios.post(webRequest.url, axiosRequest);
+        const response: AxiosResponse<any, any> = await axios.post(webRequest.url, webRequest.body, { headers: webRequest.headers });
         return response;
     }
 
