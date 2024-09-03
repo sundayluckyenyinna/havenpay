@@ -4,7 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class RegisterCustomerResponseDto {
 
-    @ApiProperty()
+    // @ApiProperty()
     firstName: string;
 
     @ApiProperty()
@@ -13,12 +13,12 @@ export class RegisterCustomerResponseDto {
 
 
 export class CustomerDetailDto{
-    @ApiProperty()
+    // @ApiProperty()
     primaryAccountNumber: string;
 
-    @ApiProperty()
+    // @ApiProperty()
     dateOfBirth: string;
 
-    @ApiProperty()
+    // @ApiProperty()
     emailAddress: string;
 }

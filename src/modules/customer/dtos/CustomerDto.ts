@@ -68,7 +68,7 @@ export class RegisterCustomerRequestDto{
   localGovernment: string;
 
   @IsString()
-  @ApiProperty({ type: MaritalStatus })
+  @ApiProperty({ enum: [MaritalStatus] })
   maritalStatus: MaritalStatus;
 
   @IsString()
