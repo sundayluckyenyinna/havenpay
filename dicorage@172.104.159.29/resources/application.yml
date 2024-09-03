@@ -1,4 +1,0 @@
-# Global environment configuration
-birds:
-  profiles:
-    active: dev
